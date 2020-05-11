@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
-import scrapy
+from scrapy_redis.spiders import RedisSpider
 from ..items import NowHouseItem, EsfItem
+import scrapy
 
-
-class FangSpider(scrapy.Spider):
+class FangSpider(RedisSpider):
     name = 'fang'
     allowed_domains = ['fang.com']
-    start_urls = ['https://www.fang.com/SoufunFamily.htm']
+    # start_urls = ['https://www.fang.com/SoufunFamily.htm']
+    redis_key = "fang:strat_urls"
     province = None
 
     def parse(self, response):
