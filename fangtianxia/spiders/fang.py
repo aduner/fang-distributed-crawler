@@ -14,6 +14,7 @@ class FangSpider(RedisSpider):
         '''
         爬取省份和城市，传递城市url进一步分析
         '''
+        print("---")
         trs = response.xpath("//div[@class='outCont']//tr")
         for tr in trs:
             province = tr.xpath("./td/strong/text()").get()
